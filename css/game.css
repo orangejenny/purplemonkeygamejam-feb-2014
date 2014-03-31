@@ -1,0 +1,112 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 18px;
+	font-family: Verdana;
+	overflow: hidden;
+}
+
+.squares {
+	position: absolute;
+	bottom: 0;
+	left: calc(50% - 300px);
+	width: 600px;
+	text-align: center;
+}
+
+.squares.rotate-left {
+	-webkit-animation: spin-left 0.5s ease;
+}
+@-webkit-keyframes spin-left { 100% { -webkit-transform: rotate(90deg); } }
+
+.squares.rotate-right {
+	-webkit-animation: spin-right 0.5s ease;
+}
+@-webkit-keyframes spin-right { 100% { -webkit-transform: rotate(-90deg); } }
+
+.squares .square {
+	display: inline-block;
+	height: 200px;
+	width: 200px;
+	background-image: url(../images/grass.png);
+	position: relative;	// for the sake of ::before
+}
+
+.square[data-type="pavement"], .square[data-type="start"], .square[data-type="finish"] { background-image: url(../images/pavement.png); }
+
+.square[data-type="start"]::before, .square[data-type="finish"]::before {
+	font-weight: bold;
+	font-size: 36px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200px;
+	text-align: center;
+	color: #fff;
+}
+.square[data-type="start"]::before { content: "START"; }
+.square[data-type="finish"]::before { content: "FINISH"; }
+
+.squares .directive {
+	position: absolute;
+	opacity: 0.67;
+	width: 200px;
+	height: 200px;
+	display: none;
+}
+
+.directive[data-action="forward"] {
+	background-image: url(../images/forward.png);
+	left: calc(50% - 100px);
+	top: 75px;
+}
+
+.directive[data-action="backward"] {
+	background-image: url(../images/backward.png);
+	left: calc(50% - 100px);
+	top: 75px;
+}
+
+.directive[data-action="left"] {
+	background-image: url(../images/left.png);
+	left: 150px;
+	top: 100px;
+}
+
+.directive[data-action="right"] {
+	background-image: url(../images/right.png);
+	right: 150px;
+	top: 100px;
+}
+
+.controls {
+	position: absolute;
+	top: 20px;
+	text-align: center;
+	left: calc(50% - 400px);
+	width: 800px;
+}
+
+.home-text {
+	margin-top: 10px;
+}
+
+button {
+	background-color: #eee;
+	margin: 10px;
+	height: 50px;
+	width: 150px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.controls button:hover {
+	background-color: #ccc;
+}
+
+.controls button[disabled] {
+	cursor: default;
+	opacity: 0.5;
+}

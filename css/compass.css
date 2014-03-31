@@ -1,0 +1,50 @@
+.compass {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-family: monospace;
+}
+
+.compass * {
+	position: absolute;
+}
+
+.compass .horizontal, .compass .vertical {
+	border: 1px solid black;
+}
+
+.compass .horizontal {
+	height: 2px;
+	width: 50px;
+	top: 49px;
+	left: 25px;
+}
+
+.compass .vertical {
+	height: 50px;
+	width: 2px;
+	top: 25px;
+	left: 50px;
+}
+
+.compass [data-position="0"] {
+	top: 0;
+	left: 45px;
+}
+
+.compass [data-position="1"] {
+	top: 40px;
+	right: 5px;
+}
+
+.compass [data-position="2"] {
+	bottom: 0;
+	left: 45px;
+}
+
+.compass [data-position="3"] {
+	top: 40px;
+	left: 5px;
+}
